@@ -18,6 +18,7 @@ class learn_opengl(ConanFile):
     def requirements(self):
         self.requires("fmt/10.1.1")
         self.requires("glfw/3.3.8")
+        self.requires("glad/0.1.36")
 
     def layout(self):
         cmake_layout(self)

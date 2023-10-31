@@ -11,9 +11,11 @@ install(TARGETS learn-opengl DESTINATION "."
 
 find_package(fmt REQUIRED CONFIG)
 find_package(glfw3 REQUIRED CONFIG)
+find_package(glad REQUIRED CONFIG)
 
 target_link_libraries(learn-opengl
     PRIVATE
     fmt::fmt
     glfw
+    glad::glad
 )
