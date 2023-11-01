@@ -1,7 +1,11 @@
 cmake_minimum_required(VERSION 3.15)
 project(learn-opengl CXX)
 
-add_executable(learn-opengl src/main.cpp)
+add_executable(learn-opengl 
+    src/main.cpp
+    src/shader.cpp
+    src/shader.h
+)
 
 install(TARGETS learn-opengl DESTINATION "."
         RUNTIME DESTINATION bin

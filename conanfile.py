@@ -27,6 +27,8 @@ class learn_opengl(ConanFile):
         deps = CMakeDeps(self)
         deps.generate()
         tc = CMakeToolchain(self)
+        shaders_directory = os.path.join(self.source_folder, "src", "shaders").replace("\\", "/")
+        tc.preprocessor_definitions["SHADERS_DIRECTORY"] = f'"{shaders_directory}"'
         tc.generate()
 
         self._update_cmake_presets()
