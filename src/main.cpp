@@ -40,7 +40,7 @@ int main()
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
 	const char* vertexShaderSource = \
-R"(#version 330 core
+		R"(#version 330 core
 layout(location = 0) in vec3 aPos;
 void main()
 {
@@ -61,7 +61,7 @@ void main()
 	}
 
 	const char* fragmentShaderSource = \
-R"(#version 330 core
+		R"(#version 330 core
 out vec4 FragColor;
 
 void main()
@@ -118,7 +118,7 @@ void main()
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-	
+
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
 
@@ -140,7 +140,7 @@ void main()
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
-	
+
 	glDeleteVertexArrays(1, &VAO);
 	glDeleteBuffers(1, &VBO);
 	glDeleteProgram(shaderProgram);
