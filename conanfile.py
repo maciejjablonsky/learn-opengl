@@ -19,6 +19,7 @@ class learn_opengl(ConanFile):
         self.requires("fmt/10.1.1")
         self.requires("glfw/3.3.8")
         self.requires("glad/0.1.36")
+        self.requires("stb/cci.20230920")
 
     def layout(self):
         cmake_layout(self)
@@ -29,6 +30,8 @@ class learn_opengl(ConanFile):
         tc = CMakeToolchain(self)
         shaders_directory = os.path.join(self.source_folder, "src", "shaders").replace("\\", "/")
         tc.preprocessor_definitions["SHADERS_DIRECTORY"] = f'"{shaders_directory}"'
+        resource_directory = os.path.join(self.source_folder, "resource").replace("\\", "/");
+        tc.preprocessor_definitions["RESOURCE_DIRECTORY"] = f'"{resource_directory}"'
         tc.generate()
 
         self._update_cmake_presets()
