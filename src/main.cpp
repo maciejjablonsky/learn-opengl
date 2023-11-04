@@ -3,6 +3,9 @@
 #include <iostream>
 #include "shader.h"
 
+#define STB_IMAGE_IMPLEMENTATION
+#include <stb_image.h>
+
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
 	glViewport(0, 0, width, height);
@@ -36,6 +39,10 @@ int main()
 		std::cout << "Failed to initialize GLAD" << std::endl;
 		return -1;
 	}
+
+	int width{}, height{}, nrChannels{};
+	auto data = stbi_load(RESOURCE_DIRECTORY"/wooden_container.jpg", &width, &height, &nrChannels, 0);
+
 
 	int nrAttributes{};
 	glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &nrAttributes);
