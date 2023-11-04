@@ -43,6 +43,12 @@ int main()
 	int width{}, height{}, nrChannels{};
 	auto data = stbi_load(RESOURCE_DIRECTORY"/wooden_container.jpg", &width, &height, &nrChannels, 0);
 
+	unsigned texture{};
+	glGenTextures(1, &texture);
+	glBindTexture(GL_TEXTURE_2D, texture);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+	glGenerateMipmap(GL_TEXTURE_2D);
+	stbi_image_free(data);
 
 	int nrAttributes{};
 	glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &nrAttributes);
@@ -53,7 +59,7 @@ int main()
 
 	Shader ourShader(SHADERS_DIRECTORY"/shader.vs", SHADERS_DIRECTORY"/shader.fs");
 	ourShader.use();
-	
+
 	float vertices[] = {
 		// positions         // colors
 		 0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,   // bottom right
