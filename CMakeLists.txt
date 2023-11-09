@@ -5,6 +5,7 @@ add_executable(learn-opengl
     src/main.cpp
     src/shader.cpp
     src/shader.h
+    src/camera.h
 )
 
 install(TARGETS learn-opengl DESTINATION "."
